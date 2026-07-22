@@ -1,0 +1,56 @@
+<div class="sidebar">
+
+    <div class="logo">
+        <h2>CEMINDIA</h2>
+        <p>EDMS v2.0</p>
+    </div>
+
+    <a href="/dashboard">
+        <i class="bi bi-speedometer2"></i> Dashboard
+    </a>
+
+    <a href="/projects">
+        <i class="bi bi-folder2-open"></i> Projects
+    </a>
+
+    <a href="/project-list">
+        <i class="bi bi-list-ul"></i> Project List
+    </a>
+
+    <a href="/upload">
+        <i class="bi bi-upload"></i> Upload Document
+    </a>
+
+    <a href="/document-list">
+        <i class="bi bi-file-earmark-text"></i> Master Document Register
+    </a>
+
+    <a href="/incoming">
+        <i class="bi bi-download"></i> Incoming Register
+    </a>
+
+    <a href="/incoming-list">
+        <i class="bi bi-card-list"></i> Incoming List
+    </a>
+
+    <a href="/outgoing">
+        <i class="bi bi-send"></i> Outgoing Register
+    </a>
+
+    <a href="/outgoing-list">
+        <i class="bi bi-card-list"></i> Outgoing List
+    </a>
+
+    <a href="/transmittal-register">
+        <i class="bi bi-envelope-paper"></i> Transmittals
+    </a>
+
+   <% if (user && user.role === "Admin") { %>
+
+<a href="/user-management">
+    <i class="bi bi-people"></i> User Management
+</a>
+
+<% } %>
+
+</div>

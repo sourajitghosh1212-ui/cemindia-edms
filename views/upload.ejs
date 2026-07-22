@@ -1,0 +1,214 @@
+<%- include("partials/header") %>
+<%- include("partials/sidebar") %>
+
+<div class="content">
+
+<div class="container-fluid mt-4">
+
+<div class="card shadow">
+
+<div class="card-header bg-primary text-white">
+
+<h3>📤 Upload Document</h3>
+
+</div>
+
+<div class="card-body">
+
+<form action="/upload" method="POST" enctype="multipart/form-data">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label>Project Name</label>
+
+<input
+type="text"
+name="project"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Project Code</label>
+
+<input
+type="text"
+name="projectCode"
+id="projectCode"
+class="form-control"
+placeholder="Example: RMHS"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Document Number</label>
+
+<input
+type="text"
+name="docNo"
+id="docNo"
+class="form-control"
+readonly
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Discipline</label>
+
+<select
+name="discipline"
+id="discipline"
+class="form-select"
+required>
+
+<option value="">Select Discipline</option>
+
+<option value="CIV">Civil</option>
+
+<option value="MEC">Mechanical</option>
+
+<option value="ELE">Electrical</option>
+
+<option value="STR">Structural</option>
+
+<option value="PIP">Piping</option>
+
+<option value="INS">Instrumentation</option>
+
+</select>
+
+</div>
+
+<div class="col-md-12 mb-3">
+
+<label>Document Title</label>
+
+<input
+type="text"
+name="title"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-4 mb-3">
+
+<label>Revision</label>
+
+<input
+type="text"
+name="revision"
+class="form-control"
+value="0"
+required>
+
+</div>
+
+<div class="col-md-4 mb-3">
+
+<label>Status</label>
+
+<select
+name="status"
+class="form-select"
+required>
+
+<option>Pending</option>
+
+<option>Approved</option>
+
+<option>Issued</option>
+
+</select>
+
+</div>
+
+<div class="col-md-4 mb-3">
+
+<label>Select File</label>
+
+<input
+type="file"
+name="document"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-12 mt-3">
+
+<button
+type="submit"
+class="btn btn-primary">
+
+📤 Upload Document
+
+</button>
+
+<a
+href="/document-list"
+class="btn btn-secondary">
+
+📄 Master Document Register
+
+</a>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const project=document.getElementById("projectCode");
+
+const discipline=document.getElementById("discipline");
+
+const docNo=document.getElementById("docNo");
+
+async function generateDocNumber(){
+
+if(project.value===""||discipline.value===""){
+
+docNo.value="";
+
+return;
+
+}
+
+const response=await fetch(
+
+    `/generate-doc-number?projectCode=${project.value}&discipline=${discipline.value}`
+
+);
+
+const data=await response.json();
+
+docNo.value=data.docNo;
+
+}
+
+project.addEventListener("keyup",generateDocNumber);
+
+discipline.addEventListener("change",generateDocNumber);
+
+</script>
+
+<%- include("partials/footer") %>

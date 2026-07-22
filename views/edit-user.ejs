@@ -1,0 +1,141 @@
+<%- include("partials/header") %>
+<%- include("partials/sidebar") %>
+
+<div class="content">
+
+<div class="container-fluid mt-4">
+
+<div class="card shadow">
+
+<div class="card-header bg-warning text-dark">
+
+<h3>
+<i class="fas fa-user-edit"></i>
+Edit User
+</h3>
+
+</div>
+
+<div class="card-body">
+
+<form action="/edit-user/<%= user.id %>" method="POST">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Full Name
+</label>
+
+<input
+type="text"
+name="fullname"
+class="form-control"
+value="<%= user.fullname %>"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Username
+</label>
+
+<input
+type="text"
+name="username"
+class="form-control"
+value="<%= user.username %>"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Password
+</label>
+
+<input
+type="password"
+name="password"
+class="form-control"
+value="<%= user.password %>"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Role
+</label>
+
+<select
+name="role"
+class="form-select">
+
+<option value="Admin"
+<%= user.role=="Admin" ? "selected" : "" %>>
+
+Admin
+
+</option>
+
+<option value="Document Controller"
+<%= user.role=="Document Controller" ? "selected" : "" %>>
+
+Document Controller
+
+</option>
+
+<option value="Client"
+<%= user.role=="Client" ? "selected" : "" %>>
+
+Client
+
+</option>
+
+</select>
+
+</div>
+
+<div class="col-12 mt-3">
+
+<button
+type="submit"
+class="btn btn-success">
+
+<i class="fas fa-save"></i>
+
+Update User
+
+</button>
+
+<a
+href="/user-management"
+class="btn btn-secondary">
+
+<i class="fas fa-arrow-left"></i>
+
+Back
+
+</a>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<%- include("partials/footer") %>

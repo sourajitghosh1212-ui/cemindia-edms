@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Outgoing Register</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<%- include("partials/header") %>
+<%- include("partials/sidebar") %>
+
+<div class="content">
+
+<h2>Outgoing Document Register</h2>
+
+<form method="GET" action="/outgoing-list">
+    <input type="text" name="search" placeholder="Search Outgoing Documents">
+    <button type="submit">Search</button>
+</form>
+
+<br>
+
+<table border="1" cellpadding="8">
+
+<tr>
+<th>ID</th>
+<th>Transmittal</th>
+<th>Date</th>
+<th>Project</th>
+<th>Document No</th>
+<th>Title</th>
+<th>Revision</th>
+<th>Status</th>
+<th>File</th>
+<th>Action</th>
+</tr>
+
+<% outgoing.forEach(doc=>{ %>
+
+<tr>
+
+<td><%= doc.id %></td>
+<td><%= doc.transmittalNo %></td>
+<td><%= doc.sentDate %></td>
+<td><%= doc.project %></td>
+<td><%= doc.docNo %></td>
+<td><%= doc.title %></td>
+<td><%= doc.revision %></td>
+<td><%= doc.status %></td>
+
+<td>
+<a href="/uploads/<%= doc.filename %>">Download</a>
+</td>
+
+<td>
+<a href="/edit-outgoing/<%= doc.id %>">Edit</a> |
+<a href="/delete-outgoing/<%= doc.id %>"
+onclick="return confirm('Delete this document?')">
+Delete
+</a>
+</td>
+
+</tr>
+
+<% }) %>
+
+</table>
+
+</div>
+
+<%- include("partials/footer") %>
+
+</body>
+</html>

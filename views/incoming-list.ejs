@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Incoming Register</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<%- include("partials/header") %>
+<%- include("partials/sidebar") %>
+
+<div class="content">
+
+<h2>Incoming Document Register</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+
+<tr>
+<th>ID</th>
+<th>Transmittal No</th>
+<th>Date</th>
+<th>Project</th>
+<th>Document No</th>
+<th>Title</th>
+<th>Revision</th>
+<th>Status</th>
+<th>File</th>
+<th>Actions</th>
+</tr>
+
+<% incoming.forEach(doc => { %>
+
+<tr>
+
+<td><%= doc.id %></td>
+
+<td><%= doc.transmittalNo %></td>
+
+<td><%= doc.receivedDate %></td>
+
+<td><%= doc.project %></td>
+
+<td><%= doc.docNo %></td>
+
+<td><%= doc.title %></td>
+
+<td><%= doc.revision %></td>
+
+<td><%= doc.status %></td>
+
+<td>
+<a href="/uploads/<%= doc.filename %>">Download</a>
+</td>
+
+<td>
+
+<a href="/edit-incoming/<%= doc.id %>">✏️ Edit</a>
+
+|
+
+<a href="/delete-incoming/<%= doc.id %>"
+onclick="return confirm('Delete this document?')">
+
+🗑️ Delete
+
+</a>
+
+</td>
+
+</tr>
+
+<% }) %>
+
+<form method="GET" action="/incoming-list">
+
+<input
+type="text"
+name="search"
+placeholder="Search Incoming Documents">
+
+<button type="submit">Search</button>
+
+</form>
+
+<br>
+
+</table>
+
+</div>
+
+<%- include("partials/footer") %>
+
+</body>
+</html>

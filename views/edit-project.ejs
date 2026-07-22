@@ -1,0 +1,146 @@
+<%- include("partials/header") %>
+<%- include("partials/sidebar") %>
+
+<div class="content">
+
+<div class="container-fluid mt-4">
+
+<div class="card shadow">
+
+<div class="card-header bg-warning text-dark">
+
+<h3>✏️ Edit Project</h3>
+
+</div>
+
+<div class="card-body">
+
+<form action="/edit-project/<%= project.id %>" method="POST">
+
+<div class="row">
+
+<div class="col-md-4 mb-3">
+
+<label class="form-label">Project Code</label>
+
+<input
+type="text"
+name="projectCode"
+class="form-control"
+value="<%= project.code %>"
+required>
+
+</div>
+
+<div class="col-md-8 mb-3">
+
+<label class="form-label">Project Name</label>
+
+<input
+type="text"
+name="projectName"
+class="form-control"
+value="<%= project.name %>"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">Client</label>
+
+<input
+type="text"
+name="client"
+class="form-control"
+value="<%= project.client %>"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">Project Status</label>
+
+<select
+name="status"
+class="form-select">
+
+<option value="Running" <%= project.status=="Running" ? "selected" : "" %>>Running</option>
+
+<option value="Completed" <%= project.status=="Completed" ? "selected" : "" %>>Completed</option>
+
+<option value="On Hold" <%= project.status=="On Hold" ? "selected" : "" %>>On Hold</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">Start Date</label>
+
+<input
+type="date"
+name="startDate"
+class="form-control"
+value="<%= project.startDate || '' %>">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">End Date</label>
+
+<input
+type="date"
+name="endDate"
+class="form-control"
+value="<%= project.endDate || '' %>">
+
+</div>
+
+<div class="col-md-12 mb-3">
+
+<label class="form-label">Description</label>
+
+<textarea
+name="description"
+rows="4"
+class="form-control"><%= project.description || '' %></textarea>
+
+</div>
+
+<div class="col-md-12">
+
+<button
+type="submit"
+class="btn btn-success">
+
+💾 Update Project
+
+</button>
+
+<a
+href="/project-list"
+class="btn btn-secondary">
+
+⬅️ Back
+
+</a>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<%- include("partials/footer") %>

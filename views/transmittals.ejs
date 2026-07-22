@@ -1,0 +1,147 @@
+<%- include("partials/header") %>
+<%- include("partials/sidebar") %>
+
+<div class="content">
+
+<div class="container-fluid mt-4">
+
+<div class="card shadow">
+
+<div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+
+<h3 class="mb-0">📨 Create New Transmittal</h3>
+
+<a href="/transmittal-register" class="btn btn-light">
+📋 Transmittal Register
+</a>
+
+</div>
+
+<div class="card-body">
+
+<form action="/transmittals" method="POST">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">Transmittal Number</label>
+
+<div class="input-group">
+
+<span class="input-group-text">
+CEMINDIA/RMHS-3/IISCO/SAIL/
+</span>
+
+<input
+type="text"
+name="transmittalNo"
+class="form-control"
+placeholder="001"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">Date</label>
+
+<input
+type="date"
+name="transDate"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">To Company</label>
+
+<input
+type="text"
+name="toCompany"
+class="form-control"
+placeholder="Enter Company Name"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">Attention</label>
+
+<input
+type="text"
+name="attention"
+class="form-control"
+placeholder="Attention Person">
+
+</div>
+
+<div class="col-md-12 mb-3">
+
+<label class="form-label">Subject</label>
+
+<input
+type="text"
+name="subject"
+class="form-control"
+placeholder="Enter Subject"
+required>
+
+</div>
+
+<div class="col-md-12 mb-3">
+
+<label class="form-label">Remarks</label>
+
+<textarea
+name="remarks"
+rows="4"
+class="form-control"
+placeholder="Remarks"></textarea>
+
+</div>
+
+<div class="col-md-12">
+
+<button
+type="submit"
+class="btn btn-success">
+
+💾 Save Transmittal
+
+</button>
+
+<a
+href="/dashboard"
+class="btn btn-secondary">
+
+🏠 Dashboard
+
+</a>
+
+<a
+href="/transmittal-register"
+class="btn btn-primary">
+
+📋 Register
+
+</a>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<%- include("partials/footer") %>

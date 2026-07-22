@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add User</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<div class="header">
+<h1>Add New User</h1>
+</div>
+
+<div class="content">
+
+<form action="/add-user" method="POST">
+
+<p>Full Name</p>
+<input type="text" name="fullname" required>
+
+<p>Username</p>
+<input type="text" name="username" required>
+
+<p>Password</p>
+<input type="password" name="password" required>
+
+<p>Role</p>
+
+<select name="role">
+
+<option>Admin</option>
+
+<option>Document Controller</option>
+
+<option>Project Manager</option>
+
+<option>Client</option>
+
+</select>
+
+<br><br>
+
+<button type="submit">Save User</button>
+
+</form>
+
+<br>
+
+<a href="/user-management">⬅️ Back</a>
+
+</div>
+
+</body>
+</html>

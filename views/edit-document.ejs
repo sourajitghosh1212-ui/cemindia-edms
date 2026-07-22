@@ -1,0 +1,51 @@
+<html>
+
+<head>
+<title>Edit Document</title>
+</head>
+
+<body>
+
+<h2>Edit Document</h2>
+
+<form action="/edit-document/<%= doc.id %>" method="POST">
+
+Project:
+<input name="project" value="<%= doc.project %>">
+
+<br><br>
+
+Document No:
+<input name="docNo" value="<%= doc.docNo %>">
+
+<br><br>
+
+Title:
+<input name="title" value="<%= doc.title %>">
+
+<br><br>
+
+Discipline:
+<input name="discipline" value="<%= doc.discipline %>">
+
+<br><br>
+
+Revision:
+<input name="revision" value="<%= doc.revision %>">
+
+<br><br>
+
+Status:
+<input name="status" value="<%= doc.status %>">
+
+<br><br>
+
+<button type="submit">
+Update Document
+</button>
+
+</form>
+
+</body>
+
+</html>

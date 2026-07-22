@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Edit Incoming Document</title>
+
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<%- include("partials/header") %>
+
+<%- include("partials/sidebar") %>
+
+<div class="content">
+
+<h2>Edit Incoming Document</h2>
+
+<form action="/edit-incoming/<%= document.id %>" method="POST">
+
+<p>Transmittal Number</p>
+<input type="text" name="transmittalNo" value="<%= document.transmittalNo %>" required>
+
+<p>Date Received</p>
+<input type="date" name="receivedDate" value="<%= document.receivedDate %>" required>
+
+<p>From</p>
+<input type="text" name="from" value="<%= document.sender %>" required>
+
+<p>To</p>
+<input type="text" name="to" value="<%= document.receiver %>" required>
+
+<p>Project</p>
+<input type="text" name="project" value="<%= document.project %>" required>
+
+<p>Document Number</p>
+<input type="text" name="docNo" value="<%= document.docNo %>" required>
+
+<p>Document Title</p>
+<input type="text" name="title" value="<%= document.title %>" required>
+
+<p>Revision</p>
+<input type="text" name="revision" value="<%= document.revision %>">
+
+<p>Discipline</p>
+<input type="text" name="discipline" value="<%= document.discipline %>">
+
+<p>Status</p>
+
+<select name="status">
+
+<option <%= document.status=="Pending"?"selected":"" %>>Pending</option>
+
+<option <%= document.status=="For Review"?"selected":"" %>>For Review</option>
+
+<option <%= document.status=="Approved"?"selected":"" %>>Approved</option>
+
+<option <%= document.status=="Rejected"?"selected":"" %>>Rejected</option>
+
+</select>
+
+<p>Remarks</p>
+
+<textarea name="remarks" rows="4"><%= document.remarks %></textarea>
+
+<br><br>
+
+<button type="submit">Update Document</button>
+
+</form>
+
+</div>
+
+<%- include("partials/footer") %>
+
+</body>
+</html>
